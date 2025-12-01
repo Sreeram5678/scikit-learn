@@ -2196,7 +2196,7 @@ diagonal regardless of actual label values::
    array([[8, 0],
           [0, 4]])
 
-Labelings that assign all classes members to the same clusters
+Labelings that assign all class members to the same clusters
 are complete but may not always be pure, hence penalized, and
 have some off-diagonal non-zero entries::
 
@@ -2210,7 +2210,7 @@ The matrix is not symmetric::
    array([[8, 0],
           [2, 2]])
 
-If classes members are completely split across different clusters, the
+If class members are completely split across different clusters, the
 assignment is totally incomplete, hence the matrix has all zero
 diagonal entries::
 
