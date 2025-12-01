@@ -1373,8 +1373,9 @@ will not necessarily be close to zero::
     supervised learning setting).
 
     However (adjusted or unadjusted) Rand index can also be useful in a purely
-    unsupervised setting as a building block for a Consensus Index that can be
-    used for clustering model selection (TODO).
+    unsupervised setting as a building block for consensus-based clustering
+    evaluation methods, where multiple clusterings are compared to assess
+    stability and select optimal models.
 
   - The **unadjusted Rand index is often close to 1.0** even if the clusterings
     themselves differ significantly. This can be understood when interpreting

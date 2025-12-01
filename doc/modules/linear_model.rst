@@ -188,13 +188,13 @@ a linear kernel.
 Ridge Complexity
 ----------------
 
-This method has the same order of complexity as
-:ref:`ordinary_least_squares`.
-
-.. FIXME:
-.. Not completely true: OLS is solved by an SVD, while Ridge is solved by
-.. the method of normal equations (Cholesky), there is a big flop difference
-.. between these
+The computational complexity of Ridge regression is similar to that of
+:ref:`ordinary_least_squares`, though the actual implementation differs:
+Ridge regression is solved using the method of normal equations with
+Cholesky decomposition, while OLS can be solved using SVD. While both
+have the same asymptotic complexity :math:`O(n_{\text{samples}} n_{\text{features}}^2)`,
+the constant factors differ, with Cholesky decomposition typically being
+faster for the same problem size.
 
 
 Setting the regularization parameter: leave-one-out Cross-Validation

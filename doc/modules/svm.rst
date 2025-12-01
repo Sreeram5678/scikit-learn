@@ -4,9 +4,6 @@
 Support Vector Machines
 =======================
 
-.. TODO: Describe tol parameter
-.. TODO: Describe max_iter parameter
-
 .. currentmodule:: sklearn.svm
 
 **Support vector machines (SVMs)** are a set of supervised learning
@@ -44,6 +41,39 @@ sparse (any ``scipy.sparse``) sample vectors as input. However, to use
 an SVM to make predictions for sparse data, it must have been fit on such
 data. For optimal performance, use C-ordered ``numpy.ndarray`` (dense) or
 ``scipy.sparse.csr_matrix`` (sparse) with ``dtype=float64``.
+
+Common Parameters
+================
+
+Several SVM classes share common parameters that control the optimization
+process:
+
+**tol** : float, default varies by class
+    Tolerance for stopping criterion. The optimization algorithm will stop
+    when the change in the objective function is below this threshold.
+    Smaller values lead to more accurate solutions but may require more
+    iterations. Default values are:
+
+    - ``1e-3`` for :class:`SVC`, :class:`SVR`, :class:`NuSVC`, and
+      :class:`NuSVR`
+    - ``1e-4`` for :class:`LinearSVC` and :class:`LinearSVR`
+
+    If you observe slightly different results for the same input data, try
+    using a smaller ``tol`` value.
+
+**max_iter** : int, default varies by class
+    Hard limit on iterations within the solver. The optimization will stop
+    after this many iterations even if convergence has not been reached.
+    Default values are:
+
+    - ``-1`` (no limit) for :class:`SVC`, :class:`SVR`, :class:`NuSVC`,
+      and :class:`NuSVR`
+    - ``1000`` for :class:`LinearSVC` and :class:`LinearSVR`
+
+    If the solver terminates early due to reaching ``max_iter``, a
+    :class:`~sklearn.exceptions.ConvergenceWarning` will be raised. In such
+    cases, consider preprocessing your data (e.g., scaling) or increasing
+    ``max_iter``.
 
 
 .. _svm_classification:

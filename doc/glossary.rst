@@ -946,9 +946,10 @@ Class APIs and Estimator Types
         :class:`ensemble.BaggingClassifier`.
 
         In a meta-estimator's :term:`fit` method, any contained estimators
-        should be :term:`cloned` before they are fit.
-
-        .. FIXME: Pipeline and FeatureUnion do not do this currently
+        should be :term:`cloned` before they are fit. For example,
+        :class:`pipeline.Pipeline` clones all transformers and estimators
+        before fitting them. However, :class:`pipeline.FeatureUnion` does
+        not clone transformers and uses them directly.
 
         An exception to this is
         that an estimator may explicitly document that it accepts a pre-fitted
@@ -1598,8 +1599,6 @@ functions or non-estimator constructors.
         interpretation of "a single iteration" is inconsistent across
         estimators: some, but not all, use it to mean a single epoch (i.e. a
         pass over every sample in the data).
-
-        .. FIXME: perhaps we should have some common tests about the relationship between ConvergenceWarning and max_iter.
 
     ``memory``
         Some estimators make use of :class:`joblib.Memory` to
